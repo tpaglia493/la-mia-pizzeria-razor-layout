@@ -43,7 +43,15 @@
 <p>
     2. Creare una funzione che stampa la somma dei numeri che vanno da 1 a n (con n passato come parametro - n incluso)
     Stampare dentro uno span il risultato:
-<p>
-    <span>@sumFunction(3)</span>
 </p>
-</p>
+    <p>
+        <span>@sumFunction(3)</span>
+    </p>
+
+    @{
+        string sentenceToCheckLetter = "nel mezzo del cammin di nostra vita";
+  sentenceToCheckLetter.GroupBy(a => a).Select(c => new { Char = c.Key, Count = c.Count() });
+
+    }
+
+
