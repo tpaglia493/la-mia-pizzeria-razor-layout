@@ -1,18 +1,12 @@
-﻿@{
+﻿@using System.Globalization;
+
+@{
     ViewData["Title"] = "Razor";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>
-      
-       
-            <br />
-            6. Partendo dalla data di oggi (usando la classe DateTime) stampare in pagina<br />
-            a. la data di 7 giorni fa<br />
-            b. che giorno della settimana è oggi (il risultato dovrà essere il nome del giorno (Lunedì, Martedì, ...)<br />
-            c. che giorno della settimana sarà nello stesso giorno e mese di oggi ma tra un anno (il risultato dovrà essere il nome del giorno (Lunedì, Martedì, ...)
-    </p>
+    <h1 class="display-4">Esercizi Razor</h1>
+  
 </div>
 
 @{
@@ -83,3 +77,23 @@
 </p>
 <p>5. Stampare in pagina la data e l'ora attuale (usando la classe DateTime) con il formato anno-mese-giorno ore:minuti:secondi</p>
 <p>@DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")</p>
+
+<p>
+    6. Partendo dalla data di oggi (usando la classe DateTime) stampare in pagina: <br />
+    a. la data di 7 giorni fa: @DateTime.Today.AddDays(-7).ToShortDateString()<br />
+    @{
+        string day = DateTime.Today.ToString("dddd");
+        string formattedDay = day.Substring(0, 1).ToUpper() + day.Substring(1);
+    }
+    b. che giorno della settimana è oggi (il risultato dovrà essere il nome del giorno (Lunedì, Martedì, ...): @formattedDay <br />
+    @{
+        string nextYearDay = DateTime.Today.AddYears(1).ToString("dddd");
+        string nextYearFormattedDay = nextYearDay.Substring(0, 1).ToUpper() + nextYearDay.Substring(1);
+
+    }
+
+    c. che giorno della settimana sarà nello stesso giorno e mese di oggi ma tra un anno (il risultato dovrà essere il nome del giorno (Lunedì, Martedì, ...): @nextYearFormattedDay
+</p>
+
+
+   
